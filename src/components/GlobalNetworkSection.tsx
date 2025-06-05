@@ -11,11 +11,11 @@ const staticTextPartVariant = fadeInUp(0.7);
 
 function GlobalNetworkSection() {
   return (
-    <section id="global-network" className="py-20 md:py-32 bg-data-light-bg  text-global-text-primary relative overflow-hidden">
+    <section id="global-network" className="py-20 md:py-32  bg-data-light-bg  text-global-text-primary relative overflow-hidden">
       {/* Optional: Subtle space dust/particle effect for the entire section background */}
       {/* <ParticleBackground particleCount={100} className="opacity-30 -z-10" /> */}
 
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+      <div className="container h-[70vh]  mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <AnimatedWrapper
           variants={staggerContainer(0.3, 0.1)}
           className="text-center max-w-3xl mx-auto mb-2"
@@ -52,7 +52,7 @@ function GlobalNetworkSection() {
             variants={fadeInUp(0.9, 0.4)} // Globe fades in slightly later
             className="flex justify-center items-center"
         >
-            <SpinningGlobe size={1000} /> {/* Adjust size as needed */}
+            <SpinningGlobe size={800} /> {/* Adjust size as needed */}
         </AnimatedWrapper>
       </div>
     </section>
