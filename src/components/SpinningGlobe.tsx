@@ -25,7 +25,7 @@ interface SpinningGlobeProps {
 const SpinningGlobe: React.FC<SpinningGlobeProps> = ({
   dotCount = 300, // Adjust for density
   globeColor = 'rgba(30, 30, 60, 0.1)', // Very subtle dark blue for the sphere body
-  dotColor = 'rgba(226, 232, 240, 0.7)', // theme('colors.globe-dot') with opacity
+  dotColor = 'rgba(255, 255, 240, 0.1)', // theme('colors.globe-dot') with opacity
   glowColorStart = 'var(--color-globe-glow-start, rgba(255, 190, 0, 0.6))',
   glowColorMid = 'var(--color-globe-glow-mid, rgba(255, 165, 0, 0.3))',
   glowColorEnd = 'var(--color-globe-glow-end, rgba(255, 140, 0, 0.05))',
@@ -71,14 +71,14 @@ const SpinningGlobe: React.FC<SpinningGlobeProps> = ({
     >
       {/* Atmospheric Glow - multiple layers for a softer, deeper effect */}
       <motion.div
-        className="absolute inset-0 rounded-full animate-subtle-pulse-glow"
+        className="absolute inset-0 rounded-full animate-swing-gentle"
         style={{
           backgroundImage: `radial-gradient(circle at 50% 30%, ${glowColorStart} 0%, ${glowColorMid} 30%, ${glowColorEnd} 60%, transparent 75%)`,
           filter: 'blur(20px)', // Softer blur for atmosphere
         }}
       />
        <motion.div // Inner sharper glow
-        className="absolute inset-0 rounded-full opacity-80"
+        className="absolute inset-0 rounded-full opacity-80 animate-swing-gentle"
         style={{
             top: '5%', height: '90%', // Slightly smaller for inner glow
             backgroundImage: `radial-gradient(circle at 50% 25%, ${glowColorStart} 0%, ${glowColorMid} 25%, transparent 55%)`,
@@ -106,7 +106,7 @@ const SpinningGlobe: React.FC<SpinningGlobeProps> = ({
               r={dot.r}
               fill={dotColor}
               initial={{ opacity: 0, scale: 0.5 }}
-              animate={{ opacity: dot.opacity, scale: 1 }}
+              animate={{ opacity: dot.opacity, scale: 5 }}
               transition={{ duration: 0.8, delay: dot.delay + 0.5, ease: "easeOut" }}
             />
           ))}

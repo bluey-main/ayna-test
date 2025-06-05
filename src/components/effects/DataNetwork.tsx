@@ -40,7 +40,7 @@ const DataNetwork: React.FC<DataNetworkProps> = ({
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
   const dotsRef = useRef<Dot[]>([]); // Use ref for animation data
-  const animationIdRef = useRef<number>();
+  const animationIdRef = useRef<number | undefined>(undefined);
   
   const [renderTrigger, setRenderTrigger] = useState(0); // Simple counter to trigger renders
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });

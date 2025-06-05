@@ -109,7 +109,17 @@ export default {
         subtlePulseGlow: {
           '0%, 100%': { opacity: '0.7', filter: 'blur(10px)' },
           '50%': { opacity: '1', filter: 'blur(15px)' },
+        },
+               swingLeftRight: {
+          '0%, 100%': { transform: 'translateX(-15%) rotate(-10deg)' }, // Start and end slightly left, tilted
+          '50%': { transform: 'translateX(15%) rotate(10deg)' },    // Swing to the right, tilted other way
+        },
+        gentleSwing: { // A slightly different, perhaps more subtle swing
+          '0%, 100%': { transform: 'translateX(0) rotate(0deg)' },
+          '25%': { transform: 'translateX(-8px) rotate(-1.5deg)' },
+          '75%': { transform: 'translateX(8px) rotate(1.5deg)' },
         }
+
       },
       animation: {
         "float-xyz": "floatXYZ 10s ease-in-out infinite alternate",
@@ -120,6 +130,8 @@ export default {
         "glow-pulse": "glowPulse 3s infinite ease-in-out alternate",
         'slow-spin': 'slowSpin 45s linear infinite', // Adjust duration for spin speed
         'subtle-pulse-glow': 'subtlePulseGlow 4s infinite ease-in-out alternate',
+            'swing-gentle': 'swingLeftRight 6s ease-in-out infinite alternate', // Uses swingLeftRight keyframes
+        'swing-subtle': 'gentleSwing 8s ease-in-out infinite alternate', // Uses gentleSwing 
       },
     },
     // ...
