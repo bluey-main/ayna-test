@@ -6,6 +6,8 @@ import FloatingWhatsAppButton from '../components/FloatingWhatsAppButton';
 import ServicesSection from '../components/ServicesSection';
 import HeroDataAnalytics from '../components/HeroDataAnalytics';
 import AboutSection from '../components/AboutSection';
+import TechServicesSection from '../components/TechServicesSection';
+import GlobalNetworkSection from '../components/GlobalNetworkSection';
 
 function HomePage() {
 
@@ -15,6 +17,8 @@ function HomePage() {
     <>
        <HeroDataAnalytics /> {/* Use the new Hero */}
        <AboutSection /> {/* Add the new section */}
+       <TechServicesSection/>
+       <GlobalNetworkSection /> {/* Add the new section */}
       {/* <PortfolioSectionV2 /> 
       <ServicesSection/>
 

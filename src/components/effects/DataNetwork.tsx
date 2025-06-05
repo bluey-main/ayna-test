@@ -1,5 +1,5 @@
 // src/components/effects/DataNetwork.tsx
-import React, { useRef, useEffect, useState, } from 'react';
+import React, { useRef, useEffect, useState, useCallback } from 'react';
 import { motion } from 'framer-motion';
 
 interface Dot {
@@ -39,8 +39,10 @@ const DataNetwork: React.FC<DataNetworkProps> = ({
   speedMultiplier = 1.0,
 }) => {
   const containerRef = useRef<HTMLDivElement>(null);
-  const [dots, setDots] = useState<Dot[]>([]); // State for dots to trigger SVG re-render
-  const [lines, setLines] = useState<Line[]>([]);
+  const dotsRef = useRef<Dot[]>([]); // Use ref for animation data
+  const animationIdRef = useRef<number>();
+  
+  const [renderTrigger, setRenderTrigger] = useState(0); // Simple counter to trigger renders
   const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
 
   // Effect to get container dimensions and update on resize
@@ -58,7 +60,7 @@ const DataNetwork: React.FC<DataNetworkProps> = ({
     return () => window.removeEventListener('resize', updateDimensions);
   }, []);
 
-  // Effect to initialize dots
+  // Initialize dots when dimensions change
   useEffect(() => {
     if (dimensions.width === 0 || dimensions.height === 0) return;
 
@@ -72,59 +74,58 @@ const DataNetwork: React.FC<DataNetworkProps> = ({
         vy: (Math.random() - 0.5) * 0.5 * speedMultiplier,
       });
     }
-    setDots(initialDots); // Set initial dots to state
+    dotsRef.current = initialDots;
+    setRenderTrigger(prev => prev + 1); // Trigger initial render
   }, [dotCount, dimensions, speedMultiplier]);
 
-
-  // Animation loop using requestAnimationFrame
+  // Animation loop
   useEffect(() => {
-    // Ensure dots are initialized and dimensions are set before starting the loop
-    if (dots.length === 0 || dimensions.width === 0 || dimensions.height === 0) {
+    if (dimensions.width === 0 || dimensions.height === 0 || dotsRef.current.length === 0) {
       return;
     }
 
-    let animationFrameId: number;
-
     const animate = () => {
-      // Update dot positions based on the current dots state
-      setDots(currentDots => // Use functional update for setDots
-        currentDots.map(dot => {
-          let newX = dot.x + dot.vx;
-          let newY = dot.y + dot.vy;
-          let newVx = dot.vx;
-          let newVy = dot.vy;
+      // Update dots in ref (no state update)
+      dotsRef.current = dotsRef.current.map(dot => {
+        let newX = dot.x + dot.vx;
+        let newY = dot.y + dot.vy;
+        let newVx = dot.vx;
+        let newVy = dot.vy;
 
-          if (newX <= 0 || newX >= dimensions.width) {
-            newVx *= -1;
-            newX = Math.max(dotRadius, Math.min(newX, dimensions.width - dotRadius)); // Prevent sticking
-          }
-          if (newY <= 0 || newY >= dimensions.height) {
-            newVy *= -1;
-            newY = Math.max(dotRadius, Math.min(newY, dimensions.height - dotRadius)); // Prevent sticking
-          }
-          return { ...dot, x: newX, y: newY, vx: newVx, vy: newVy };
-        })
-      );
+        if (newX <= 0 || newX >= dimensions.width) {
+          newVx *= -1;
+          newX = Math.max(dotRadius, Math.min(newX, dimensions.width - dotRadius));
+        }
+        if (newY <= 0 || newY >= dimensions.height) {
+          newVy *= -1;
+          newY = Math.max(dotRadius, Math.min(newY, dimensions.height - dotRadius));
+        }
+        
+        return { ...dot, x: newX, y: newY, vx: newVx, vy: newVy };
+      });
 
-      animationFrameId = requestAnimationFrame(animate);
+      // Trigger re-render periodically for smooth animation
+      setRenderTrigger(prev => prev + 1);
+      
+      animationIdRef.current = requestAnimationFrame(animate);
     };
 
-    animationFrameId = requestAnimationFrame(animate);
+    animationIdRef.current = requestAnimationFrame(animate);
 
     return () => {
-      cancelAnimationFrame(animationFrameId);
+      if (animationIdRef.current) {
+        cancelAnimationFrame(animationIdRef.current);
+      }
     };
-  }, [dots.length, dimensions, dotRadius]); // Rerun loop if dot count or dimensions change.
-                                           // dots.length ensures it restarts if dots are re-initialized.
+  }, [dimensions, dotRadius, speedMultiplier]); // Stable dependencies only
 
-  // Effect to calculate lines based on the current 'dots' state
-  useEffect(() => {
-    if (dots.length === 0) {
-        setLines([]); // Clear lines if no dots
-        return;
-    }
+  // Calculate lines based on current dot positions
+  const calculateLines = useCallback((): Line[] => {
+    if (dotsRef.current.length === 0) return [];
 
     const newLines: Line[] = [];
+    const dots = dotsRef.current;
+    
     for (let i = 0; i < dots.length; i++) {
       for (let j = i + 1; j < dots.length; j++) {
         const d1 = dots[i];
@@ -133,7 +134,7 @@ const DataNetwork: React.FC<DataNetworkProps> = ({
 
         if (distance < connectionDistance) {
           newLines.push({
-            id: `${d1.id}-${d2.id}`, // Ensure unique key for React
+            id: `${d1.id}-${d2.id}`,
             d1,
             d2,
             opacity: Math.max(0, 1 - distance / connectionDistance),
@@ -141,9 +142,12 @@ const DataNetwork: React.FC<DataNetworkProps> = ({
         }
       }
     }
-    setLines(newLines);
-  }, [dots, connectionDistance]); // Recalculate lines whenever dots' positions change or connectionDistance changes
+    return newLines;
+  }, [connectionDistance]);
 
+  // Get current lines for rendering
+  const lines = calculateLines();
+  const dots = dotsRef.current;
 
   return (
     <div ref={containerRef} className={`absolute inset-0 overflow-hidden pointer-events-none ${className}`}>

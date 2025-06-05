@@ -12,7 +12,9 @@
   --color-secondary-rgb: 209, 176, 224;
   --color-accent-rgb: 255, 199, 0;
   --color-primary: #6A0DAD; /* For AnimatedGradientBackground */
+--color-tech-accent-glow: theme('colors.tech-accent-glow'); /* Makes Tailwind color accessible */
 
+ --color-tech-accent-glow-rgb: 255, 165, 0; /* RGB values for rgba() usage */
   /* Make sure these Tailwind color names are also defined in tailwind.config.js if you use them elsewhere */
   /* For example, if 'primary' in tailwind.config.js is '#6A0DAD', this is fine. */
 }
