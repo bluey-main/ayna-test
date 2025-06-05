@@ -5,6 +5,12 @@ import { motion } from 'framer-motion';
 import { FiMenu, FiX } from 'react-icons/fi';
 import logo from "../assets/images/ayna.png"
 
+
+interface navType{
+  name:string;
+  to:string;
+  isSection:string;
+}
 // Helper for smooth scrolling to sections
 const scrollToSection = (id: string, onScrolled?: () => void) => {
   console.log(`Attempting to scroll to: #${id}`);
@@ -26,7 +32,7 @@ const scrollToSection = (id: string, onScrolled?: () => void) => {
 };
 
 // Navigation links data
-const navLinks = [
+const navLinks: navType[] = [
   // { name: 'Home', to: 'home', isSection: true }, // Ensure this ID matches your Hero section's wrapper
   // { name: 'Portfolio', to: 'portfolio', isSection: true }, // Or 'best-projects' if you used that ID
   // { name: 'Services', to: 'services', isSection: true },

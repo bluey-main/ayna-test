@@ -1,5 +1,5 @@
 // src/components/effects/DataNetwork.tsx
-import React, { useRef, useEffect, useState, useCallback } from 'react';
+import React, { useRef, useEffect, useState, } from 'react';
 import { motion } from 'framer-motion';
 
 interface Dot {
