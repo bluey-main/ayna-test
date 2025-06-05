@@ -1,0 +1,23 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+:root {
+  /* ... other variables ... */
+  --color-primary: #6A0DAD; /* Or your actual primary color hex/rgb/oklch */
+  --color-accent-glow-start: rgba(255, 100, 0, 0.6); /* Your desired start color for the glow */
+  --color-accent-glow-end: rgba(230, 0, 0, 0.1);   /* Your desired end color for the glow */
+    --color-primary-rgb: 106, 13, 173; /* R, G, B values for your primary color */
+  --color-secondary-rgb: 209, 176, 224;
+  --color-accent-rgb: 255, 199, 0;
+  --color-primary: #6A0DAD; /* For AnimatedGradientBackground */
+
+  /* Make sure these Tailwind color names are also defined in tailwind.config.js if you use them elsewhere */
+  /* For example, if 'primary' in tailwind.config.js is '#6A0DAD', this is fine. */
+}
+
+body {
+  @apply font-sans text-data-text-main bg-data-light-bg antialiased;
+  /* font-family: theme('fontFamily.sans'); Tailwind's @apply font-sans already does this */
+}
