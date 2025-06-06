@@ -5,6 +5,7 @@ import Navbar from './components/Navbar';
 import Footer from './components/Footer';
 import HomePage from './pages/HomePage';
 import ScrollToTop from './components/common/ScrollToTop'; // Helper for scrolling on nav
+import ContactPage from './pages/ContactPage';
 
 function App() {
   return (
@@ -15,6 +16,8 @@ function App() {
         <main className="flex-grow">
           <Routes>
             <Route path="/" element={<HomePage />} />
+            <Route path="/contact" element={<ContactPage />} />
+            
             {/* Add other routes here if needed later */}
           </Routes>
         </main>

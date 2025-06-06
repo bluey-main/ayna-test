@@ -78,7 +78,7 @@ const techServicesData: TechService[] = [
     IconComponent: <FiCpu size={40} className="text-tech-accent-glow" />, // Placeholder, NVIDIA logo would be better
     visualElement: (
         <div className="w-full h-full flex flex-col items-center justify-end p-1 text-left opacity-80">
-             <div className="p-2 mb-2 bg-tech-accent-glow/20 rounded-icon-container self-start">
+             <div className="p-2 mb-2 bg-tech-accent-glow/20 rounded-card-tech self-start">
                 <img src="/path/to/nvidia-logo.svg" alt="NVIDIA" className="h-8 w-auto" /> {/* Replace with actual Nvidia logo */}
              </div>
             <pre className="bg-black/30 p-2 rounded-md text-[10px] sm:text-xs text-green-400 font-mono overflow-x-auto w-full">

@@ -62,7 +62,7 @@ const TechServiceCard: React.FC<TechServiceCardProps> = ({ service, className = 
           service.visualElement
         ) : (
           <motion.div
-            className="p-3 bg-tech-accent-glow/10 rounded-icon-container shadow-icon-glow shadow-tech-accent-glow animate-glow-pulse"
+            className="p-3 bg-tech-accent-glow/10 rounded-card-tech shadow-icon-glow shadow-tech-accent-glow animate-glow-pulse"
             // If using CSS var for shadow: style={{ '--tw-shadow-color': 'var(--color-tech-accent-glow)' } as React.CSSProperties}
           >
             {service.IconComponent}

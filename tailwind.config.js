@@ -9,6 +9,7 @@ export default {
     // ...
     extend: {
       colors: {
+        "brand-yellow": "#fccd42",
         "data-primary": "#3B82F6", // A strong blue (e.g., blue-500)
         "data-secondary": "#10B981", // A vibrant green/teal (e.g., emerald-500)
         "data-accent": "#F59E0B", // A warm yellow/orange accent (e.g., amber-500)
@@ -50,6 +51,15 @@ export default {
         'globe-glow-start': 'rgba(255, 190, 0, 0.6)', // Vibrant orange/yellow
         'globe-glow-mid': 'rgba(255, 165, 0, 0.3)',
         'globe-glow-end': 'rgba(255, 140, 0, 0.05)',
+        'contact-bg-light': '#FFFFFF',
+        'contact-bg-dark': '#111111', // Very dark gray / off-black
+        'contact-text-dark': '#0D0D0D', // For text on light bg
+        'contact-text-light': '#F3F4F6', // For text on dark bg (labels, form title)
+        'contact-text-muted': '#6B7280', // For less prominent text on light bg
+        'contact-accent-yellow': '#F7FF00', // Vibrant yellow/lime
+        'contact-accent-yellow-dark': '#D4DB00',
+        'contact-border': '#4B5563', // Border for form fields on dark bg
+        'contact-placeholder': '#9CA3AF', // For placeholder-like labels
       },
       fontFamily: {
         sans: ["Archivo", "Poppins", "sans-serif"], // Inter is great for data/tech UIs
@@ -61,6 +71,8 @@ export default {
         tag: "1rem", // For the service tags
         "card-tech": "1.5rem", // ~24px for the service cards
         // 'icon-container': '1rem', // For the icon background
+              'form-card': '1.5rem', // ~24px for the dark form container
+        'button-contact': '0.5rem', // ~8px for the send button
       },
       boxShadow: {
         "card-about":
