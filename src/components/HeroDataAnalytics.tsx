@@ -13,12 +13,13 @@ import FloatingDataObject, {
 import AnimatedHighlightedWord from './AnimatedHighlightedWord';
 import FunButton from './Button';
 import Button from './Button';
+import { useNavigate } from 'react-router-dom';
 
 // ... (headline splitting logic remains the same)
 const staticTextPartVariant = fadeInUp(0.7);
 
 function HeroDataAnalytics() {
-
+ const navigate = useNavigate()
 
 
   return (
@@ -65,7 +66,7 @@ function HeroDataAnalytics() {
             <motion.div className='w-full flex justify-center items-center' variants={fadeInUp(0.7, 0.3)}>
             
 
-              <Button label='Reach Out Now' onClick={() => {}}/>
+              <Button label='Reach Out Now' onClick={() => navigate("/contact")}/>
       
             </motion.div>
           </AnimatedWrapper>

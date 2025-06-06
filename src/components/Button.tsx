@@ -42,12 +42,12 @@ const Button: React.FC<IButtonProp> = ({
     <div className="flex group w-fit" onClick={onClick}>
         {
             !iconOnly && <div className={`${btnSizeClasses[size]} min-w-28  rounded-full flex justify-center items-center group-hover:shadow-lg ${backgroundColor} group-hover:${bgHoverColor} ease-in-out duration-300`}>
-        <p className={`${textColor} h- ease-in-out duration-300 group-hover:text-data-text-main`}>{label}</p>
+        <p className={`${textColor} h- ease-in-out duration-300 `}>{label}</p>
       </div>
         }
       
       <div className={` ${circleSizeClasses[size]} rounded-full group-hover:${bgHoverColor} ${backgroundColor} ease-in-out duration-300 -ml-3 flex justify-center items-center`}>
-        <FiArrowRight className="text-white w-5 h-5 transform group-hover:text-data-text-main group-hover:-rotate-[50deg] ease-in-out duration-300" />
+        <FiArrowRight className="text-white w-5 h-5 transform  group-hover:-rotate-[50deg] ease-in-out duration-300" />
       </div>
     </div>
   );
