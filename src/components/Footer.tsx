@@ -60,13 +60,14 @@ import {
 // ];
 
 function Footer() {
+  
   return (
     <motion.footer
     id="contact"
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount: 0.1 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      // initial={{ opacity: 0, y: 50 }}
+      // whileInView={{ opacity: 1, y: 0 }}
+      // viewport={{ once: true, amount: 0.1 }}
+      // transition={{ duration: 0.8, ease: "easeOut" }}
       className="bg-black text-footer-text-secondary pt-16 md:pt-24 pb-8 rounded-t-4xl md:rounded-t-5xl" // Large top rounding
     >
       <div className="container mx-auto px-6 sm:px-8">

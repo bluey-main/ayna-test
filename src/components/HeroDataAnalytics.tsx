@@ -11,6 +11,8 @@ import FloatingDataObject, {
   DataPillShape,
 } from './data-objects/FloatingDataObject';
 import AnimatedHighlightedWord from './AnimatedHighlightedWord';
+import FunButton from './Button';
+import Button from './Button';
 
 // ... (headline splitting logic remains the same)
 const staticTextPartVariant = fadeInUp(0.7);
@@ -60,15 +62,11 @@ function HeroDataAnalytics() {
               We transform your complex data into clear, actionable strategies that power growth and innovation for your enterprise.
             </motion.p>
 
-            <motion.div variants={fadeInUp(0.7, 0.3)}>
-              {/* ... CTA Button ... */}
-              <motion.button
-                whileHover={{ scale: 1.05, y: -2, boxShadow: "0 10px 15px -3px rgba(59, 130, 246, 0.3), 0 4px 6px -2px rgba(59, 130, 246, 0.15)" }}
-                whileTap={{ scale: 0.95 }}
-                className="bg-data-primary hover:bg-blue-600 text-white font-semibold py-3 px-8 sm:py-4 sm:px-10 rounded-cta text-base sm:text-lg shadow-lg transition-all duration-300 ease-in-out flex items-center mx-auto lg:mx-0"
-              >
-                Discover Your Data Potential <FiArrowRight className="ml-2 w-5 h-5" />
-              </motion.button>
+            <motion.div className='w-full flex justify-center items-center' variants={fadeInUp(0.7, 0.3)}>
+            
+
+              <Button label='Reach Out Now' onClick={() => {}}/>
+      
             </motion.div>
           </AnimatedWrapper>
 

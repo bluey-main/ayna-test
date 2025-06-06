@@ -1,9 +1,10 @@
 // src/components/Navbar.tsx
 import React, { useState, useEffect } from 'react';
-import { Link as RouterLink, useLocation } from 'react-router-dom'; // Import useLocation
+import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom'; // Import useLocation
 import { motion } from 'framer-motion';
 import { FiMenu, FiX } from 'react-icons/fi';
 import logo from "../assets/images/ayna.png"
+import Button from './Button';
 
 
 interface navType{
@@ -54,6 +55,7 @@ function Navbar() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
   const location = useLocation(); // To detect if we are on the homepage
+  const navigate = useNavigate()
 
   const isHomePage = location.pathname === '/';
 
@@ -139,24 +141,29 @@ function Navbar() {
               </RouterLink>
             )
           ))}
+
+                        <Button label='Reach Out Now' onClick={() => navigate("/contact")} size='sm'/>
+          
         </div>
 
         {/* Mobile Navigation Toggle */}
         <div className="md:hidden">
-          <button
+          {/* <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className={`focus:outline-none p-1 rounded 
-                        ${isScrolled || isMobileMenuOpen ? 'text-primary hover:text-brand-accent' : 'text-brand-dark hover:text-brand-accent'}`}
+                        ${isScrolled || isMobileMenuOpen ? 'text-data-text-main hover:text-brand-accent' : 'text-data-text-main hover:text-brand-accent'}`}
             aria-label="Toggle menu"
             aria-expanded={isMobileMenuOpen}
           >
             {isMobileMenuOpen ? <FiX size={26} /> : <FiMenu size={26} />}
-          </button>
+          </button> */}
+                        <Button label='Reach Out Now' onClick={() => navigate("/contact")}  iconOnly/>
+
         </div>
       </div>
 
       {/* Mobile Menu */}
-      <motion.div
+      {/* <motion.div
         initial={false} // No initial animation, controlled by animate prop
         animate={{
           height: isMobileMenuOpen ? 'auto' : 0,
@@ -195,8 +202,10 @@ function Navbar() {
               </RouterLink>
             )
           ))}
+                        <Button label='Reach Out Now' onClick={() => navigate("/contact")} size='sm'/>
+
         </div>
-      </motion.div>
+      </motion.div> */}
     </motion.nav>
   );
 }

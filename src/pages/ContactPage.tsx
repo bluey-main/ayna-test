@@ -73,7 +73,7 @@ function ContactPage() {
   };
 
   const contactDetails = [
-    { label: 'Phone', value: '+ (2) 578-365-379', href: 'tel:+2578365379' },
+    { label: 'Phone', value: '+234 703 3020 608', href: 'tel:+2347033020608' },
     { label: 'Email', value: 'info@aynadatasolutions.com', href: 'mailto:info@aynadatasolutions.com' },
     { label: 'Office', value: '14B, Kafayat Abdulrasaq Street, Lekki Phase 1' },
   ];
@@ -96,7 +96,7 @@ function ContactPage() {
             </motion.h1>
 
             <motion.p variants={fadeInUp(0.6, 0.1)} className="text-xl sm:text-2xl font-medium text-contact-text-dark">
-              Don't be afraid to say hello with us!
+             Share your Data concerns with us!
             </motion.p>
 
             <motion.div variants={fadeInUp(0.6, 0.2)} className="space-y-6">
@@ -150,7 +150,7 @@ function ContactPage() {
                 </motion.div>
               </div>
               <motion.div whileFocus={{borderColor: 'var(--color-contact-accent-yellow, #F7FF00)'}} className="relative col-span-full"> {/* sm:col-span-2 if you want it with others */}
-                <textarea name="message" placeholder="Tell us about your interested in" value={formData.message} onChange={handleChange} rows={5} required className="form-input"></textarea>
+                <textarea name="message" placeholder="Tell us about what you are interested in" value={formData.message} onChange={handleChange} rows={5} required className="form-input"></textarea>
               </motion.div>
               <div>
                 <motion.button

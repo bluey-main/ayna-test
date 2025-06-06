@@ -4,11 +4,13 @@ import { motion } from 'framer-motion';
 // import { FiArrowDown } from 'react-icons/fi'; // Arrow icon
 import { FaWhatsapp } from 'react-icons/fa';
 import { myBusinessWhatsAppNumber, prefilledWhatsappMessage } from './animations/variants';
+import { FiArrowRight } from 'react-icons/fi';
+import { useNavigate } from 'react-router-dom';
 
 
 
 const CircularGetStartedButton: React.FC = () => {
-  const text = "• CHAT US NOW • CHAT US NOW • CHAT US NOW "; // Repeat for full circle, adjust as needed
+  const text = "• REACH OUT NOW • REACH OUT NOW • REACH OUT NOW  "; // Repeat for full circle, adjust as needed
   const radius = 45; // Radius of the text path
   const circleId = "getStartedCirclePath";
 
@@ -16,15 +18,19 @@ const CircularGetStartedButton: React.FC = () => {
   const encodedMessage = encodeURIComponent(prefilledWhatsappMessage);
   const whatsappUrl = `https://wa.me/${cleanPhoneNumber}?text=${encodedMessage}`;
 
+    const navigate = useNavigate()
+  
+
   return (
     <motion.a
-      href={whatsappUrl}
+      // href={whatsappUrl}
+      onClick={() => navigate("/contact")}
       target="_blank"
       rel="noopener noreferrer"
       aria-label={'Chat with us on WhatsApp'}
       whileHover={{ scale: 1.05, boxShadow: "0px 0px 20px rgba(175, 255, 173, 0.6)" }}
       whileTap={{ scale: 0.95 }}
-      className="relative w-32 h-32 sm:w-36 sm:h-36 bg-footer-accent-green rounded-full flex items-center justify-center text-footer-bg font-bold shadow-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-footer-accent-green-dark focus:ring-offset-2 focus:ring-offset-footer-bg"
+      className="relative w-32 h-32 sm:w-36 sm:h-36 group bg-brand-yellow rounded-full flex items-center justify-center text-footer-bg font-bold shadow-lg cursor-pointer focus:outline-none focus:ring-2 focus:ring-footer-accent-green-dark focus:ring-offset-2 focus:ring-offset-footer-bg"
     >
       {/* Circular Text using SVG */}
       <svg
@@ -46,7 +52,7 @@ const CircularGetStartedButton: React.FC = () => {
       </svg>
 
       {/* Arrow Icon in the Center */}
-      <FaWhatsapp size={28} className="sm:w-8 sm:h-8 transform" />
+      <FiArrowRight className="text-footer-bg w-8 h-8 transform group-hover:-rotate-[50deg] ease-in-out duration-300" />
     </motion.a>
   );
 };
