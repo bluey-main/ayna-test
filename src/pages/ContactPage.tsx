@@ -2,9 +2,9 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from 'emailjs-com';
-import { FiArrowRight, FiExternalLink, FiLoader } from 'react-icons/fi';
+import { FiExternalLink, FiLoader } from 'react-icons/fi';
 import { AnimatedWrapper } from '../components/AnimatedWrapper'; // Assuming path
-import { fadeInUp, staggerContainer, fadeInLeft, fadeInRight } from '../components/animations/variants'; // Assuming path
+import { fadeInUp, fadeInLeft, fadeInRight } from '../components/animations/variants'; // Assuming path
 
 // EmailJS Configuration - Store these in .env!
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
