@@ -74,6 +74,13 @@ export default {
               'form-card': '1.5rem', // ~24px for the dark form container
         'button-contact': '0.5rem', // ~8px for the send button
       },
+       gridTemplateColumns: {
+        // Simple 16 column grid
+        '38': 'repeat(38, minmax(0, 1fr))',
+
+        
+        
+      },
       boxShadow: {
         "card-about":
           "0 10px 25px -5px rgba(0, 0, 0, 0.1), 0 8px 10px -6px rgba(0, 0, 0, 0.1)",
@@ -123,8 +130,8 @@ export default {
           '50%': { opacity: '1', filter: 'blur(15px)' },
         },
                swingLeftRight: {
-          '0%, 100%': { transform: 'translateX(-15%) rotate(-10deg)' }, // Start and end slightly left, tilted
-          '50%': { transform: 'translateX(15%) rotate(10deg)' },    // Swing to the right, tilted other way
+          '0%, 100%': { transform: 'translateX(-15%) rotate(-30deg)' }, // Start and end slightly left, tilted
+          '50%': { transform: 'translateX(15%) rotate(30deg)' },    // Swing to the right, tilted other way
         },
         gentleSwing: { // A slightly different, perhaps more subtle swing
           '0%, 100%': { transform: 'translateX(0) rotate(0deg)' },

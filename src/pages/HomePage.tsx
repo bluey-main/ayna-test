@@ -1,9 +1,5 @@
 // src/pages/HomePage.tsx
 import React from 'react';
-import Hero from '../components/Hero';
-import PortfolioSectionV2 from '../components/PortfolioSectionV2';
-import FloatingWhatsAppButton from '../components/FloatingWhatsAppButton';
-import ServicesSection from '../components/ServicesSection';
 import HeroDataAnalytics from '../components/HeroDataAnalytics';
 import AboutSection from '../components/AboutSection';
 import TechServicesSection from '../components/TechServicesSection';

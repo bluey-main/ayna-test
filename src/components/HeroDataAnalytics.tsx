@@ -63,7 +63,7 @@ function HeroDataAnalytics() {
               We transform your complex data into clear, actionable strategies that power growth and innovation for your enterprise.
             </motion.p>
 
-            <motion.div className='w-full flex justify-center items-center' variants={fadeInUp(0.7, 0.3)}>
+            <motion.div className='w-full flex justify-center lg:justify-start items-center lg:items-start' variants={fadeInUp(0.7, 0.3)}>
             
 
               <Button label='Reach Out Now' onClick={() => navigate("/contact")}/>

@@ -25,7 +25,7 @@ interface SpinningGlobeProps {
 const SpinningGlobe: React.FC<SpinningGlobeProps> = ({
   dotCount = 300, // Adjust for density
   globeColor = 'rgba(30, 30, 60, 0.1)', // Very subtle dark blue for the sphere body
-  dotColor = 'rgba(255, 255, 240, 0.1)', // theme('colors.globe-dot') with opacity
+  dotColor = 'rgba(255, 255, 240,1)', // theme('colors.globe-dot') with opacity
   glowColorStart = 'var(--color-globe-glow-start, rgba(255, 190, 0, 0.6))',
   glowColorMid = 'var(--color-globe-glow-mid, rgba(255, 165, 0, 0.3))',
   glowColorEnd = 'var(--color-globe-glow-end, rgba(255, 140, 0, 0.05))',
@@ -91,13 +91,13 @@ const SpinningGlobe: React.FC<SpinningGlobeProps> = ({
 
       {/* Spinning Globe Container */}
       <motion.div
-        className="w-full h-full animate-slow-spin" // Apply CSS spin animation
+        className="w-full h-full animate-slow-spi" // Apply CSS spin animation
         style={{ perspective: '1000px' }} // For a slight 3D feel to the dots
       >
         {/* Optional: A very subtle sphere body */}
         {/* <div className="absolute inset-0 rounded-full" style={{background: globeColor}}></div> */}
 
-        <svg width="100%" height="100%" viewBox={`0 0 ${size} ${size}`}>
+        {/* <svg width="100%" height="100%" viewBox={`0 0 ${size} ${size}`}>
           {dots.map((dot) => (
             <motion.circle
               key={dot.id}
@@ -110,7 +110,13 @@ const SpinningGlobe: React.FC<SpinningGlobeProps> = ({
               transition={{ duration: 0.8, delay: dot.delay + 0.5, ease: "easeOut" }}
             />
           ))}
-        </svg>
+        </svg> */}
+
+        <div className="grid grid-cols-10 sm:grid-cols-12 gap-9 sm:gap-1 h-full w-full">
+      {Array.from({ length: 440 }).map((_, i) => (
+        <div key={i} className={`w-2 h-2 sm:w-4 sm:h-4 bg-data-light-bg rounded-full`}></div>
+      ))}
+    </div>
       </motion.div>
     </div>
   );
