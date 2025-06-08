@@ -82,7 +82,7 @@ function Footer() {
                 Shape the Future with AYNA
               </h2>
               <p className="text-base sm:text-lg max-w-xl mx-auto lg:mx-0">
-                Whether you&apos;re a government building smarter systems, a business unlocking data&apos;s value, or a startup scaling with AI, AYNA is your partner for transformation. Let&pos;s make impact together.
+                Whether you&apos;re a government building smarter systems, a business unlocking data&apos;s value, or a startup scaling with AI, AYNA is your partner for transformation. Let&apos;s make impact together.
               </p>
             </motion.div>
             <motion.div
