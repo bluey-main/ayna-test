@@ -2,8 +2,9 @@
 import React, { useState, useEffect } from 'react';
 import { Link as RouterLink, useLocation, useNavigate } from 'react-router-dom'; // Import useLocation
 import { motion } from 'framer-motion';
-import { FiMenu, FiX } from 'react-icons/fi';
-import logo from "../assets/images/ayna.png"
+// import logo2 from "../assets/images/ayna.png"
+import logo from "../assets/images/ayna-white.png"
+
 import Button from './Button';
 
 
@@ -87,7 +88,7 @@ function Navbar() {
   };
 
   const navClasses = `fixed w-full z-50 transition-all duration-300 ease-in-out`;
-  const scrolledClasses = 'bg-white  py-3 text-brand-dark'; // Dark text on white bg
+  const scrolledClasses = 'bg-data-dark-bg py-3 text-brand-dark'; // Dark text on white bg
   const transparentClasses = 'bg-transparent py-5 text-white'; // White text on transparent bg
 
   return (

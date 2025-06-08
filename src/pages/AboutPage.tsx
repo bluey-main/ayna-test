@@ -21,7 +21,7 @@ import Button from "../components/Button";
 
 function AboutPage() {
   return (
-    <section className="relative bg-data-light-bg min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-16 md:pt-36 md:pb-20">
+    <section className="relative bg-data-dark-bg min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-16 md:pt-36 md:pb-20">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 md:gap-x-16 items-center"> {/* Increased gap */}
           

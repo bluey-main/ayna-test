@@ -14,6 +14,7 @@ import AnimatedHighlightedWord from './AnimatedHighlightedWord';
 import FunButton from './Button';
 import Button from './Button';
 import { useNavigate } from 'react-router-dom';
+import GridPattern from './GridPattern';
 
 // ... (headline splitting logic remains the same)
 const staticTextPartVariant = fadeInUp(0.7);
@@ -23,7 +24,8 @@ function HeroDataAnalytics() {
 
 
   return (
-    <section id="hero-data" className="relative bg-data-light-bg min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-16 md:pt-36 md:pb-20"> {/* Adjusted padding for overall balance */}
+    <section id="hero-data" className="relative bg-data-dark-bg min-h-screen flex items-center justify-center overflow-hidden pt-28 pb-16 md:pt-36 md:pb-20"> {/* Adjusted padding for overall balance */}
+     <GridPattern/>
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-x-8 md:gap-x-12 items-center"> {/* Adjusted gap-x */}
           
@@ -44,23 +46,31 @@ function HeroDataAnalytics() {
               className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-data-text-main leading-tight tracking-tighter mb-6"
             >
               {/* Compose the headline */}
-              <motion.span variants={staticTextPartVariant}>Unlock </motion.span>
+              <motion.span variants={staticTextPartVariant}>Unleash  </motion.span>
+                  <AnimatedHighlightedWord
+                word="Africa's ,"
+                highlightColorClass="bg-[#0d8234]/50" // Example different highlight
+                textColorClass="text-brand-green"
+                className="mx-1"
+              />
+              <motion.span variants={staticTextPartVariant}>Potential With </motion.span>
+
               <AnimatedHighlightedWord
-                word="Insights,"
-                highlightColorClass="bg-yellow-300/40" // Example different highlight
-                textColorClass="text-data-accent"
+                word="AYNA,"
+                highlightColorClass="bg-yellow-200/50" // Example different highlight
+                textColorClass="text-brand-yellow"
                 className="mx-1"
               />
               <br/>
-              <motion.span variants={staticTextPartVariant}>Drive Decisions </motion.span>
+              {/* <motion.span variants={staticTextPartVariant}>Drive Decisions </motion.span> */}
      
             </motion.h1>
 
             <motion.p
               variants={fadeInUp(0.7, 0.2)}
-              className="text-lg sm:text-xl text-data-text-muted max-w-md mx-auto lg:mx-0 mb-8"
+              className="text-lg sm:text-lg  text-data-text-muted max-w-md mx-auto lg:mx-0 mb-8"
             >
-              We transform your complex data into clear, actionable strategies that power growth and innovation for your enterprise.
+              Transform data into power, complexity into opportunity, and vision into reality. Partner with us to lead the digital future with cutting-edge AI, analytics, and talent solutions.
             </motion.p>
 
             <motion.div className='w-full flex justify-center lg:justify-start items-center lg:items-start' variants={fadeInUp(0.7, 0.3)}>

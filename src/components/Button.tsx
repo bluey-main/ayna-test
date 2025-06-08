@@ -29,7 +29,7 @@ const Button: React.FC<IButtonProp> = ({
   label,
   bgHoverColor = "bg-brand-yellow",
   backgroundColor = "bg-data-text-main",
-  textColor = "text-white",
+  textColor = "text-data-dark-bg",
   size = "md",
   iconOnly
 
@@ -47,7 +47,7 @@ const Button: React.FC<IButtonProp> = ({
         }
       
       <div className={` ${circleSizeClasses[size]} rounded-full group-hover:${bgHoverColor} ${backgroundColor} ease-in-out duration-300 -ml-3 flex justify-center items-center`}>
-        <FiArrowRight className="text-white w-5 h-5 transform  group-hover:-rotate-[50deg] ease-in-out duration-300" />
+        <FiArrowRight className={`${textColor} w-5 h-5 transform  group-hover:-rotate-[50deg] ease-in-out duration-200`}/>
       </div>
     </div>
   );

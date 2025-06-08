@@ -9,13 +9,14 @@ export default {
     // ...
     extend: {
       colors: {
-        "brand-yellow": "#fccd42",
+        "brand-yellow": "#FFC71F",
+        "brand-green": "#07DF4F",
         "data-primary": "#3B82F6", // A strong blue (e.g., blue-500)
         "data-secondary": "#10B981", // A vibrant green/teal (e.g., emerald-500)
         "data-accent": "#F59E0B", // A warm yellow/orange accent (e.g., amber-500)
-        "data-light-bg": "#F9FAFB", // Very light gray background
-        "data-text-main": "#1F2937", // Dark gray for text
-        "data-text-muted": "#6B7280", // Lighter gray for subtext
+        "data-dark-bg": "#0D0D0D"  , // Very light gray background
+        "data-text-main": "#F9FAFB", // Dark gray for text
+        "data-text-muted": "#f9fafbb0", // Lighter gray for subtext
         "data-highlight-bg": "#E0E7FF", // Light blue for highlighting text (like the yellow in example)
         "data-highlight-text": "#3B82F6",
         "about-bg": "#FDFDFD", // Very light, almost white

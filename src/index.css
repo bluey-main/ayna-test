@@ -21,7 +21,7 @@
 
 
 body {
-  @apply font-sans text-data-text-main bg-data-light-bg antialiased;
+  @apply font-sans text-data-text-main bg-data-dark-bg antialiased;
   /* font-family: theme('fontFamily.sans'); Tailwind's @apply font-sans already does this */
 }
 

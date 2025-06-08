@@ -114,7 +114,7 @@ const SpinningGlobe: React.FC<SpinningGlobeProps> = ({
 
         <div className="grid grid-cols-10 sm:grid-cols-12 gap-9 sm:gap-1 h-full w-full">
       {Array.from({ length: 440 }).map((_, i) => (
-        <div key={i} className={`w-2 h-2 sm:w-4 sm:h-4 bg-data-light-bg rounded-full`}></div>
+        <div key={i} className={`w-2 h-2 sm:w-4 sm:h-4 bg-data-dark-bg rounded-full`}></div>
       ))}
     </div>
       </motion.div>

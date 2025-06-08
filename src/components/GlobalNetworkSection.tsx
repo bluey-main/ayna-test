@@ -5,6 +5,7 @@ import SpinningGlobe from "./SpinningGlobe"; // Import the new globe
 import { AnimatedWrapper } from "./AnimatedWrapper";
 import { fadeInUp, staggerContainer } from "./animations/variants";
 import AnimatedHighlightedWord from "./AnimatedHighlightedWord";
+import GridPattern from "./GridPattern";
 
 const staticTextPartVariant = fadeInUp(0.7);
 
@@ -12,8 +13,10 @@ function GlobalNetworkSection() {
   return (
     <section
       id="global-network"
-      className="py-20 md:py-32  bg-data-light-bg  text-global-text-primary relative overflow-hidden"
+      className="py-20 md:py-32  bg-data-dark-bg  text-global-text-primary relative overflow-hidden"
     >
+     <GridPattern/>
+
       {/* Optional: Subtle space dust/particle effect for the entire section background */}
       {/* <ParticleBackground particleCount={100} className="opacity-30 -z-10" /> */}
 

@@ -1,7 +1,6 @@
 // src/components/TechServiceCard.tsx
 import React from 'react';
 import { motion, type Variants } from 'framer-motion';
-import { type IconType } from 'react-icons'; // To type the icon prop
 
 export interface TechService {
   id: string;
@@ -11,6 +10,10 @@ export interface TechService {
   visualElement?: React.ReactNode; // For complex visuals like mockups or code snippets
   spanCols?: number; // For grid spanning (e.g., 1 or 2)
   spanRows?: number; // For grid spanning
+  shadowColor?:string;
+  bgColor?:string
+  className?:string
+  bgGradient?:string
 }
 
 interface TechServiceCardProps {
@@ -39,10 +42,10 @@ const TechServiceCard: React.FC<TechServiceCardProps> = ({ service, className = 
                   bg-tech-card-bg backdrop-blur-md border border-tech-card-border 
                   rounded-card-tech p-6 sm:p-8 shadow-card-tech-main 
                   flex flex-col overflow-hidden group
-                  transition-all duration-300 ease-out hover:shadow-card-tech-hover hover:border-white/20 ${className}`}
+                  transition-all duration-300 ease-out  ${service?.className} ${className}`}
     >
       {/* Optional: Subtle background gradient/pattern inside card */}
-      <div className="absolute inset-0 bg-tech-card-gradient opacity-30 group-hover:opacity-50 transition-opacity duration-300 -z-10"></div>
+      <div className={`absolute inset-0 ${service?.bgGradient}  opacity-30  group-hover:opacity-50 transition-opacity duration-300 -z-10`}></div>
 
       <div className="flex-shrink-0 mb-5 flex items-center justify-between">
         <h3 className="text-xl sm:text-2xl font-semibold text-tech-text-primary leading-tight">
@@ -62,7 +65,7 @@ const TechServiceCard: React.FC<TechServiceCardProps> = ({ service, className = 
           service.visualElement
         ) : (
           <motion.div
-            className="p-3 bg-tech-accent-glow/10 rounded-card-tech shadow-icon-glow shadow-tech-accent-glow animate-glow-pulse"
+            className={`p-3 ${service?.bgColor} rounded-card-tech shadow-icon-glow ${service?.shadowColor} animate-glow-pulse`}
             // If using CSS var for shadow: style={{ '--tw-shadow-color': 'var(--color-tech-accent-glow)' } as React.CSSProperties}
           >
             {service.IconComponent}

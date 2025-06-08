@@ -19,6 +19,7 @@ import DataNetwork from "./effects/DataNetwork";
 import { FaMoneyBillAlt } from "react-icons/fa";
 import { MdOutlineSupportAgent } from "react-icons/md";
 import AnimatedHighlightedWord from "./AnimatedHighlightedWord";
+import GridPattern from "./GridPattern";
 
 interface CapabilityTag {
   icon: React.ElementType;
@@ -60,17 +61,12 @@ function AboutSection() {
     return (
     <section
       id="about-us"
-      className="py-16 md:py-24 bg-about-bg relative overflow-hidden"
+      className="py-16 md:py-24 bg-data-dark-bg relative overflow-hidden"
     >
+           <GridPattern/>
+      
       {/* Optional subtle background grid pattern */}
-      <div
-        className="absolute inset-0 z-0 opacity-20"
-        style={{
-          backgroundImage:
-            "linear-gradient(rgba(200,200,200,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(200,200,200,0.1) 1px, transparent 1px)",
-          backgroundSize: "20px 20px",
-        }}
-      ></div>
+
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <AnimatedWrapper
@@ -83,15 +79,23 @@ function AboutSection() {
               className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-data-text-main leading-tight tracking-tighter mb-6"
             >
               {/* Compose the headline */}
-              <motion.span variants={staticTextPartVariant}>Use </motion.span>
+                   <AnimatedHighlightedWord
+                word="Discover"
+                highlightColorClass="bg-purple-200/40" // Example different highlight
+                textColorClass="text-purple-300"
+                className="mx-1"
+              />
+              <motion.span variants={staticTextPartVariant}> What We  </motion.span>
+              <br/>
+              <motion.span variants={staticTextPartVariant}>Do At </motion.span>
+
               <AnimatedHighlightedWord
-                word="Innovation"
+                word="AYNA"
                 highlightColorClass="bg-yellow-300/40" // Example different highlight
                 textColorClass="text-data-accent"
                 className="mx-1"
               />
-              <motion.span variants={staticTextPartVariant}> faster and more </motion.span>
-              <AnimatedHighlightedWord
+              {/* <AnimatedHighlightedWord
                 word="efficiently"
                 highlightColorClass="bg-green-300/60" // Example
                 textColorClass="text-green-700"
@@ -103,7 +107,7 @@ function AboutSection() {
                 highlightColorClass="bg-blue-300/60" // Example
                 textColorClass="text-blue-700"
                 className="mx-1"
-              />
+              /> */}
             </motion.h1>
         </AnimatedWrapper>
 
@@ -170,10 +174,32 @@ function AboutSection() {
 
           {/* Right Text Content */}
           <AnimatedWrapper variants={fadeInRight} className="py-4">
-            <h3 className="text-2xl sm:text-3xl font-bold text-about-title mb-4 leading-snug">
-              Our Agency drives innovation by reducing latency and boosting the
-              performance of your applications.
-            </h3>
+              <motion.h3 // This H1 will apply its fadeInUp to all direct children spans
+              variants={fadeInUp(0.7, 0.1)} // Overall animation for the H1 block
+              className="text-2xl sm:text-4xl font-extrabold text-data-text-main leading-tight tracking-tighter mb-6"
+            >
+              {/* Compose the headline */}
+              <motion.span variants={staticTextPartVariant}> Our  </motion.span>
+
+                   <AnimatedHighlightedWord
+                word="six"
+               highlightColorClass="bg-[#0d8234]/50" // Example different highlight
+                textColorClass="text-[#07DF4F]"
+                className="mx-1"
+              />
+
+              <motion.span variants={staticTextPartVariant}> interconnected pillars deliver end-to-end  </motion.span>
+                    <AnimatedHighlightedWord
+                word="solutions"
+          highlightColorClass="bg-[#0d8234]/50" // Example different highlight
+                textColorClass="text-[#07DF4F]"
+                className="mx-1"
+              />
+
+              <motion.span variants={staticTextPartVariant}> to transform your organization </motion.span>
+
+              </motion.h3>
+       
             <p className="text-about-text text-base sm:text-lg leading-relaxed mb-8">
               It's particularly useful for projects that need immediate impact
               and minimal delay, like generative AI solutions, real-time
