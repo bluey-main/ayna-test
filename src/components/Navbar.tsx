@@ -208,7 +208,7 @@ function Navbar() {
         transition={{ duration: 0.35, ease: [0.04, 0.62, 0.23, 0.98] }} // Custom ease for smoother open/close
         className={`md:hidden overflow-hidden ${
           isScrolled || isMobileMenuOpen
-            ? "bg-brand-yellow shadow-md"
+            ? "bg-data-dark-bg shadow-md"
             : "bg-black/30 backdrop-blur-md"
         }`} // Darker transparent bg for mobile
       >
@@ -249,8 +249,8 @@ function Navbar() {
                   className={`font-medium text-lg transition-colors duration-200 
                                  ${
                                    isScrolled || isMobileMenuOpen
-                                     ? "text-data-dark-bg hover:text-data-dark-bg"
-                                     : "text-data-dark-bg hover:text-gray-200"
+                                     ? "text-data-text-main hover:text-data-text-main"
+                                     : "text-data-text-main hover:text-gray-200"
                                  }`}
                 >
                   {link.name}
