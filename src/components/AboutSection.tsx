@@ -1,6 +1,6 @@
 // src/components/AboutSection.tsx
 import React from "react";
-import { motion, } from "framer-motion";
+import { motion } from "framer-motion";
 import { AnimatedWrapper } from "./AnimatedWrapper"; // Your scroll animation wrapper
 import {
   fadeInUp,
@@ -8,32 +8,51 @@ import {
   fadeInLeft,
   fadeInRight,
 } from "./animations/variants"; // Your animation variants
-import {
-  FiLayers, // For "Full-Stack" or "Comprehensive"
-  FiMessageSquare, // For "Consultation" or "Strategy"
-  FiBarChart2, // For "Analytics" or "Results"
-  FiCpu, // For "AI-enabled" or "Technology"
-//   FiGlobe, // For Web
-} from "react-icons/fi";
+
 import DataNetwork from "./effects/DataNetwork";
-import { FaMoneyBillAlt } from "react-icons/fa";
-import { MdOutlineSupportAgent } from "react-icons/md";
+import { FaGlobeAfrica, FaSearch } from "react-icons/fa";
 import AnimatedHighlightedWord from "./AnimatedHighlightedWord";
 import GridPattern from "./GridPattern";
+import { RiFocus3Line } from "react-icons/ri";
+import { GiSpring } from "react-icons/gi";
 
 interface CapabilityTag {
   icon: React.ElementType;
   text: string;
   iconColor?: string;
+  description?: string;
 }
 
 const capabilities: CapabilityTag[] = [
-  { icon: FiLayers, text: "Data Governance & Policy Advisory", iconColor: "text-blue-500" },
-  { icon: FaMoneyBillAlt, text: "Data Monetization Strategy & Execution", iconColor: "text-purple-500" },
-  { icon:  FiCpu, text: "Advanced Analytics & AI Solutions", iconColor: "text-green-500" },
-  { icon: FiMessageSquare, text: "Capacity Development & Institutional Training", iconColor: "text-indigo-500" },
-  { icon: FiBarChart2, text: "Technology Talent Sourcing & Placement", iconColor: "text-yellow-500" },
-  { icon: MdOutlineSupportAgent, text: "Strategy Consulting & Execution Support", iconColor: "text-pink-500" },
+  {
+    icon: FaSearch,
+    text: "Integrated Expertise",
+    iconColor: "text-blue-500",
+    description:
+      "We blend strategy, data, technology, and talent under one roof.",
+  },
+  {
+    icon: FaGlobeAfrica,
+    text: "Local Insight + Global Best Practice",
+    iconColor: "text-purple-500",
+        description:
+      "We are deeply rooted in Africa and globally informed.",
+  },
+  {
+    icon: RiFocus3Line,
+    text: "Execution-Focused",
+    iconColor: "text-green-500",
+         description:
+      "Our work goes beyond strategy decks; we drive implementation, measurement, and outcomes.",
+  },
+  {
+    icon: GiSpring,
+    text: "Cross-Sectoral Versatility",
+    iconColor: "text-indigo-500",
+     description:
+      "From fintech to government, investment groups to donor agencies, we navigate diverse institutional contexts with ease.",
+  },
+
   // Add more or adjust to your agency's core offerings
 ];
 
@@ -57,58 +76,48 @@ const tagVariants = {
 const staticTextPartVariant = fadeInUp(0.7);
 
 function AboutSection() {
-
-    return (
+  return (
     <section
       id="about-us"
       className="py-16 md:py-24 bg-data-dark-bg relative overflow-hidden"
     >
-           <GridPattern/>
-      
-      {/* Optional subtle background grid pattern */}
+      <GridPattern />
 
+      {/* Optional subtle background grid pattern */}
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <AnimatedWrapper
           variants={fadeInUp(0.6)}
           className="mb-10 md:mb-28 text-center lg:px-48"
         >
+          <motion.h1 // This H1 will apply its fadeInUp to all direct children spans
+            variants={fadeInUp(0.7, 0.1)} // Overall animation for the H1 block
+            className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-data-text-main leading-tight tracking-tighter mb-6"
+          >
+            {/* Compose the headline */}
+            <motion.span variants={staticTextPartVariant}>
+              {" "}
+              Why Choose{" "}
+            </motion.span>
 
-             <motion.h1 // This H1 will apply its fadeInUp to all direct children spans
-              variants={fadeInUp(0.7, 0.1)} // Overall animation for the H1 block
-              className="text-4xl sm:text-5xl md:text-6xl font-extrabold text-data-text-main leading-tight tracking-tighter mb-6"
-            >
-              {/* Compose the headline */}
-                   <AnimatedHighlightedWord
-                word="Discover"
-                highlightColorClass="bg-purple-200/40" // Example different highlight
-                textColorClass="text-purple-300"
-                className="mx-1"
-              />
-              <motion.span variants={staticTextPartVariant}> What We  </motion.span>
-              <br/>
-              <motion.span variants={staticTextPartVariant}>Do At </motion.span>
-
-              <AnimatedHighlightedWord
-                word="AYNA"
-                highlightColorClass="bg-yellow-300/40" // Example different highlight
-                textColorClass="text-data-accent"
-                className="mx-1"
-              />
-              {/* <AnimatedHighlightedWord
-                word="efficiently"
-                highlightColorClass="bg-green-300/60" // Example
-                textColorClass="text-green-700"
-                className="mx-1"
-              />
-              <motion.span variants={staticTextPartVariant}> with our expert </motion.span>
-              <AnimatedHighlightedWord
-                word="team!"
-                highlightColorClass="bg-blue-300/60" // Example
-                textColorClass="text-blue-700"
-                className="mx-1"
-              /> */}
-            </motion.h1>
+            <AnimatedHighlightedWord
+              word="AYNA"
+              highlightColorClass="bg-yellow-300/40" // Example different highlight
+              textColorClass="text-data-accent"
+              className="mx-1"
+            />
+            <br />
+            <motion.span variants={staticTextPartVariant}>
+              {" "}
+              For Your{" "}
+            </motion.span>
+            <AnimatedHighlightedWord
+              word="Partnership"
+              highlightColorClass="bg-red-200/40" // Example different highlight
+              textColorClass="text-red-500"
+              className="mx-1"
+            />
+          </motion.h1>
         </AnimatedWrapper>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 items-center">
@@ -146,66 +155,70 @@ function AboutSection() {
                 /> */}
                 {/* Option 2: Flowing Lines */}
                 {/* <FlowingLines count={15} colors={['rgba(255,255,255,0.5)', 'rgb(237, 50, 56)']} className=" -z-10"/> */}
-
                 {/* Option 3: Pulsing Circles */}
                 {/* <PulsingCircles 
                   count={15}
                   colors={["rgba(255,255,255,0.5)", "rgb(237, 50, 56)"]}
                   className=" -z-10"
                 /> */}
-
                 {/* Option 5: Data Network */}
                 <DataNetwork
                   dotCount={13}
-                  dotColor="rgba(245, 158, 11, 1)"
+                  dotColor="rgba(255, 255, 255, 1)"
                   lineColor="rgba(245, 158, 11, 1)"
                   connectionDistance={250}
                   speedMultiplier={6} // Make dots move 50% faster than default
                   dotRadius={6}
                   lineWidth={2}
-                //   className="opacity-70" // Overall opacity for the effect
+                  //   className="opacity-70" // Overall opacity for the effect
                 />
                 {/* <ParticleBackground particleCount={470} className="opacity-80" />  */}
               </div>
-
-             
             </motion.div>
           </AnimatedWrapper>
 
           {/* Right Text Content */}
           <AnimatedWrapper variants={fadeInRight} className="py-4">
-              <motion.h3 // This H1 will apply its fadeInUp to all direct children spans
+            <motion.h3 // This H1 will apply its fadeInUp to all direct children spans
               variants={fadeInUp(0.7, 0.1)} // Overall animation for the H1 block
-              className="text-2xl sm:text-4xl font-extrabold text-data-text-main leading-tight tracking-tighter mb-6"
+              className="text-2xl sm:text-3xl font-extrabold text-data-text-main leading-tight tracking-tighter mb-6"
             >
               {/* Compose the headline */}
-              <motion.span variants={staticTextPartVariant}> Our  </motion.span>
+              <motion.span variants={staticTextPartVariant}>
+                {" "}
+                We don&apos;t just{" "}
+              </motion.span>
 
-                   <AnimatedHighlightedWord
-                word="six"
-               highlightColorClass="bg-[#0d8234]/50" // Example different highlight
+              <AnimatedHighlightedWord
+                word="strategize"
+                highlightColorClass="bg-[#0d8234]/50" // Example different highlight
                 textColorClass="text-[#07DF4F]"
                 className="mx-1"
               />
 
-              <motion.span variants={staticTextPartVariant}> interconnected pillars deliver end-to-end  </motion.span>
-                    <AnimatedHighlightedWord
-                word="solutions"
-          highlightColorClass="bg-[#0d8234]/50" // Example different highlight
+              <motion.span variants={staticTextPartVariant}>
+                {" "}
+                we deliver results that{" "}
+              </motion.span>
+              <AnimatedHighlightedWord
+                word="redefine"
+                highlightColorClass="bg-[#0d8234]/50" // Example different highlight
                 textColorClass="text-[#07DF4F]"
                 className="mx-1"
               />
 
-              <motion.span variants={staticTextPartVariant}> to transform your organization </motion.span>
+              <motion.span variants={staticTextPartVariant}>
+                {" "}
+                what&apos;s possible.{" "}
+              </motion.span>
+            </motion.h3>
 
-              </motion.h3>
-       
-            <p className="text-about-text text-base sm:text-lg leading-relaxed mb-8">
+            {/* <p className="text-about-text text-base sm:text-lg leading-relaxed mb-8">
               It's particularly useful for projects that need immediate impact
               and minimal delay, like generative AI solutions, real-time
               analytics, and immersive user experiences. We help you deliver
               excellence, efficiently.
-            </p>
+            </p> */}
 
             {/* Capability Tags */}
             <motion.div
@@ -213,7 +226,7 @@ function AboutSection() {
               initial="hidden"
               whileInView="visible"
               viewport={{ once: true, amount: 0.2 }}
-              className="grid grid-cols-2 sm:grid-cols-2 gap-3 sm:gap-4"
+              className="grid grid-cols-1 sm:grid-cols-1 gap-3 sm:gap-4"
             >
               {capabilities.map((cap) => (
                 <motion.div
@@ -224,17 +237,22 @@ function AboutSection() {
                     scale: 1.05,
                     boxShadow: "0px 4px 10px rgba(0,0,0,0.1)",
                   }}
-                  className="bg-about-tag-bg border border-about-tag-border rounded-tag p-3 sm:p-4 flex items-center space-x-2 sm:space-x-3 cursor-default transition-all duration-200 ease-out"
+                  className="bg-about-tag-b  border border-about-tag-border rounded-tag p-3 sm:p-4 flex items-center space-x-3 sm:space-x-5 cursor-default transition-all duration-200 ease-out"
                 >
                   <cap.icon
-                    size={18}
+                    size={28}
                     className={`${
                       cap.iconColor || "text-primary"
                     } flex-shrink-0`}
                   />
-                  <span className="text-xs sm:text-sm font-medium text-about-tag-text">
-                    {cap.text}
-                  </span>
+                  <div className="flex-col gap-y-4 items-center ">
+                    <p className="text-lg sm:text-lg font-bold text-data-text-main">
+                      {cap.text}
+                    </p>
+                    <p className="text-xs sm:text-sm font-medium text-data-text-muted sm:w-[80%]">
+                      {cap?.description}
+                    </p>
+                  </div>
                 </motion.div>
               ))}
             </motion.div>

@@ -28,7 +28,7 @@ body {
 
 @layer components {
   .form-input {
-    @apply w-full bg-transparent border-0 border-b border-contact-border text-contact-text-light placeholder-contact-placeholder 
+    @apply w-full bg-transparent border-0 border-b border-contact-border text-data-dark-bg placeholder-data-dark-bg/50 
            py-3 px-1 focus:outline-none focus:ring-0 focus:border-contact-accent-yellow 
            transition-colors duration-200 ease-in-out text-sm sm:text-base;
   }

@@ -79,7 +79,7 @@ function ContactPage() {
   ];
 
   return (
-    <section id="contact-page" className="min-h-screen flex items-center bg-contact-bg-light py-40 md:py-52">
+    <section id="contact-page" className="min-h-screen flex items-center bg-data-dark-bg py-40 md:py-52">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-10 gap-12 md:gap-16 items-start">
           {/* Left Column: Text Info */}
@@ -89,26 +89,26 @@ function ContactPage() {
           >
             <motion.h1
               variants={fadeInUp(0.6)}
-              className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-contact-text-dark font-heading leading-none tracking-tighter"
+              className="text-5xl sm:text-6xl md:text-7xl font-extrabold text-data-text-main font-heading leading-none tracking-tighter"
             >
               Let's get <br />
               in touch
             </motion.h1>
 
-            <motion.p variants={fadeInUp(0.6, 0.1)} className="text-xl sm:text-2xl font-medium text-contact-text-dark">
+            <motion.p variants={fadeInUp(0.6, 0.1)} className="text-xl sm:text-2xl font-medium text-data-text-muted">
              Share your Data concerns with us!
             </motion.p>
 
             <motion.div variants={fadeInUp(0.6, 0.2)} className="space-y-6">
               {contactDetails.map((detail) => (
                 <div key={detail.label}>
-                  <p className="text-xs text-contact-text-muted uppercase tracking-wider">{detail.label}</p>
+                  <p className="text-xs text-data-text-muted uppercase tracking-wider">{detail.label}</p>
                   {detail.href ? (
-                    <a href={detail.href} className="text-md sm:text-lg text-contact-text-dark hover:text-primary transition-colors">
+                    <a href={detail.href} className="text-md sm:text-lg text-data-text-main hover:text-primary transition-colors">
                       {detail.value}
                     </a>
                   ) : (
-                    <p className="text-md sm:text-lg text-contact-text-dark">{detail.value}</p>
+                    <p className="text-md sm:text-lg text-data-text-main">{detail.value}</p>
                   )}
                 </div>
               ))}
@@ -129,37 +129,37 @@ function ContactPage() {
           {/* Right Column: Contact Form */}
           <AnimatedWrapper
             variants={fadeInRight} // Adjusted delay
-            className="lg:col-span-6 bg-contact-bg-dark text-contact-text-light p-8 sm:p-10 md:p-12 rounded-form-card shadow-2xl relative"
+            className="lg:col-span-6 bg-data-text-main text-data-dark-bg p-8 sm:p-10 md:p-12 rounded-form-card shadow-2xl relative"
           >
       
 
             <h2 className="text-2xl font-semibold mb-8">Contact</h2>
             <form ref={form} onSubmit={handleSubmit} className="space-y-6">
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <motion.div whileFocus={{borderColor: 'var(--color-contact-accent-yellow, #F7FF00)'}} className="relative">
+                <motion.div whileFocus={{borderColor: 'var(--color-contact-accent-yellow, #FFC71F)'}} className="relative">
                   <input type="text" name="from_name" placeholder="Name" value={formData.from_name} onChange={handleChange} required className="form-input" />
                 </motion.div>
-                <motion.div whileFocus={{borderColor: 'var(--color-contact-accent-yellow, #F7FF00)'}} className="relative">
+                <motion.div whileFocus={{borderColor: 'var(--color-contact-accent-yellow, #FFC71F)'}} className="relative">
                   <input type="email" name="from_email" placeholder="Email" value={formData.from_email} onChange={handleChange} required className="form-input" />
                 </motion.div>
-                <motion.div whileFocus={{borderColor: 'var(--color-contact-accent-yellow, #F7FF00)'}} className="relative">
+                <motion.div whileFocus={{borderColor: 'var(--color-contact-accent-yellow, #FFC71F)'}} className="relative">
                   <input type="tel" name="phone_number" placeholder="Phone" value={formData.phone_number} onChange={handleChange} className="form-input" />
                 </motion.div>
-                <motion.div whileFocus={{borderColor: 'var(--color-contact-accent-yellow, #F7FF00)'}} className="relative">
+                <motion.div whileFocus={{borderColor: 'var(--color-contact-accent-yellow, #FFC71F)'}} className="relative">
                   <input type="text" name="subject" placeholder="Subject" value={formData.subject} onChange={handleChange} required className="form-input" />
                 </motion.div>
               </div>
-              <motion.div whileFocus={{borderColor: 'var(--color-contact-accent-yellow, #F7FF00)'}} className="relative col-span-full"> {/* sm:col-span-2 if you want it with others */}
+              <motion.div whileFocus={{borderColor: 'var(--color-contact-accent-yellow, #FFC71F)'}} className="relative col-span-full"> {/* sm:col-span-2 if you want it with others */}
                 <textarea name="message" placeholder="Tell us about what you are interested in" value={formData.message} onChange={handleChange} rows={5} required className="form-input"></textarea>
               </motion.div>
               <div>
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
-                  whileHover={{ scale: 1.02, y: -1, backgroundColor: 'var(--color-contact-accent-yellow-dark, #D4DB00)' }}
+                  whileHover={{ scale: 1.02, y: -1,  }}
                   whileTap={{ scale: 0.98 }}
                   className="w-full bg-brand-yellow text-contact-bg-dark font-bold py-3.5 px-6 rounded-button-contact transition-all duration-200 ease-out flex items-center justify-center text-md"
-                  style={{'--color-contact-accent-yellow-dark': '#D4DB00'} as React.CSSProperties}
+                  // style={{'--color-contact-accent-yellow-dark': '#D4DB00'} as React.CSSProperties}
                 >
                   {isSubmitting ? (
                     <FiLoader className="animate-spin mr-2 w-5 h-5" />

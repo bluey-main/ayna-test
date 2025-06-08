@@ -31,32 +31,30 @@ function GlobalNetworkSection() {
           >
             {/* Compose the headline */}
             <motion.span variants={staticTextPartVariant}>
-              Shed some
+              Shed some 
             </motion.span>
             <AnimatedHighlightedWord
-              word="Light"
+              word=" Light"
               highlightColorClass="bg-yellow-300/40" // Example different highlight
               textColorClass="text-data-accent"
               className="mx-1"
             />
             <motion.span variants={staticTextPartVariant}>
               {" "}
-              on your business
+              on your business   
             </motion.span>
             <AnimatedHighlightedWord
-              word="data"
-              highlightColorClass="bg-green-300/60" // Example
-              textColorClass="text-green-700"
+              word=" data"
+              highlightColorClass="bg-brand-green/60" // Example
+              textColorClass="text-brand-green"
               className="mx-1"
             />
           </motion.h1>
           <motion.p
             variants={fadeInUp(0.7, 0.2)}
-            className="text-lg sm:text-xl text-data-text-main leading-relaxed"
+            className="text-lg sm:text-xl text-data-text-muted leading-relaxed"
           >
-            Our expansive global network consists of more than 160+ strategic
-            locations, allowing you to reach your users and process data with
-            minimal latency, anywhere in the world.
+Uncover insights from raw data, track performance, and make smarter decisions with intuitive tools that bring clarity, focus, and growth.
           </motion.p>
         </AnimatedWrapper>
 
@@ -65,14 +63,7 @@ function GlobalNetworkSection() {
           className="flex justify-center items-center"
         >
           <SpinningGlobe size={800} /> {/* Adjust size as needed */}
-          <table>
-            <tr>
-              <td>Home</td>
-              <td>Home</td>
-              <td>Home</td>
-              <td>Home</td>
-            </tr>
-          </table>
+    
         </AnimatedWrapper>
       </div>
     </section>

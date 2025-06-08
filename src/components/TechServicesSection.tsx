@@ -7,13 +7,9 @@ import { fadeInUp, staggerContainer } from "./animations/variants";
 
 // Example Icons from react-icons/fi (Feather Icons) - replace with your choices
 import {
-  FiZap,
-  FiDatabase,
+  
   FiShield,
-  FiLayers,
-  FiCpu,
-  FiCode,
-  FiBarChart2,
+
 } from "react-icons/fi";
 import GridPattern from "./GridPattern";
 import AnimatedHighlightedWord from "./AnimatedHighlightedWord";
@@ -148,7 +144,7 @@ function TechServicesSection() {
             />
           </motion.h1>
           <p className="text-lg sm:text-xl text-data-text-muted max-w-3xl mx-auto mt-4 leading-relaxed">
-            Our six interconnected pillars deliver end-to-end <br /> solutions
+            Our six interconnected pillars deliver end-to-end <br className="hidden lg:inline-block "/> solutions
             to transform your organization.
           </p>
         </AnimatedWrapper>

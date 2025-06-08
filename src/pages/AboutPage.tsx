@@ -1,7 +1,7 @@
 // src/pages/AboutPage.tsx (or src/components/AboutPage.tsx)
 import React from "react";
 import { motion } from "framer-motion";
-import { fadeInUp, staggerContainer, fadeIn } from "../components/animations/variants"; // Adjust path
+import { fadeInUp, staggerContainer } from "../components/animations/variants"; // Adjust path
 import AnimatedHighlightedWord from "../components/AnimatedHighlightedWord"; // Adjust path
 import { AnimatedWrapper } from "../components/AnimatedWrapper"; // Adjust path
 import FloatingImage from "../components/FloatingImage";
@@ -9,7 +9,6 @@ import aboutImage1 from "../assets/images/team-dynamic.jpg"
 import aboutImage2 from "../assets/images/creative-process.jpg"
 import aboutImage3 from "../assets/images/office-vibe.jpg"
 import aboutImage4 from "../assets/images/data-visualization-abstract.jpg"
-import Button from "../components/Button";
 
 
 // Placeholder images - update these paths

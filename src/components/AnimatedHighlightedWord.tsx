@@ -4,17 +4,17 @@ import { motion, useAnimation, type Variants } from 'framer-motion';
 import { useInView } from 'react-intersection-observer';
 
 // Define blink animation variants (can be shared or local)
-const blinkBackgroundVariant: Variants = {
-  initial: { scaleY: 1, originY: 0.5 }, // Start fully open
-  blinkOnce: {
-    scaleY: [1, 0.05, 1, 0.05, 1],
-    transition: {
-      duration: 0.6,
-      times: [0, 0.1, 0.25, 0.35, 0.6],
-      delay: 0.3, // Delay after the word appears for blink to start
-    },
-  },
-};
+// const blinkBackgroundVariant: Variants = {
+//   initial: { scaleY: 1, originY: 0.5 }, // Start fully open
+//   blinkOnce: {
+//     scaleY: [1, 0.05, 1, 0.05, 1],
+//     transition: {
+//       duration: 0.6,
+//       times: [0, 0.1, 0.25, 0.35, 0.6],
+//       delay: 0.3, // Delay after the word appears for blink to start
+//     },
+//   },
+// };
 
 const textWithinBlinkVariant: Variants = {
   initial: { opacity: 1 },

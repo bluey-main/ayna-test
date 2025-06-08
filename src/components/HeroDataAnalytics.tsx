@@ -1,7 +1,6 @@
 // src/components/HeroDataAnalytics.tsx
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiArrowRight } from 'react-icons/fi';
 import { AnimatedWrapper } from './AnimatedWrapper';
 import { fadeInUp, staggerContainer,  } from './animations/variants';
 import FloatingDataObject, {
@@ -11,7 +10,6 @@ import FloatingDataObject, {
   DataPillShape,
 } from './data-objects/FloatingDataObject';
 import AnimatedHighlightedWord from './AnimatedHighlightedWord';
-import FunButton from './Button';
 import Button from './Button';
 import { useNavigate } from 'react-router-dom';
 import GridPattern from './GridPattern';
