@@ -160,7 +160,7 @@ export const AnimatedSVG: React.FC<AnimatedSVGProps> = ({
 
   return (
     <div className="animated-svg-container">
-      <style jsx>{`
+      <style >{`
         .animated-svg-container {
           display: inline-block;
           line-height: 0;
