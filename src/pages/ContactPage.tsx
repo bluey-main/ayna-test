@@ -1,7 +1,7 @@
 // src/pages/ContactPage.tsx (or src/components/ContactPage.tsx)
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
-import emailjs from 'emailjs-com';
+import emailjs from '@emailjs/browser';
 import { FiExternalLink, FiLoader } from 'react-icons/fi';
 import { AnimatedWrapper } from '../components/AnimatedWrapper'; // Assuming path
 import { fadeInUp, fadeInLeft, fadeInRight } from '../components/animations/variants'; // Assuming path
@@ -52,7 +52,7 @@ function ContactPage() {
     setIsSubmitting(true);
     setSubmitStatus(null);
 
-    emailjs.sendForm(SERVICE_ID, TEMPLATE_ID, form.current, USER_ID)
+    emailjs .sendForm(SERVICE_ID, TEMPLATE_ID, form.current, USER_ID)
       .then(
         (result) => {
           console.log('EmailJS SUCCESS!', result.text);
