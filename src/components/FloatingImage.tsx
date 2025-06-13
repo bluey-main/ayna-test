@@ -13,6 +13,7 @@ interface FloatingImageProps extends Omit<MotionProps, 'children'> {
   initialY?: number | string;
   rotate?: number | string | (number | string)[];
   aspectRatio?: string;   // e.g., 'aspect-square', 'aspect-video', 'aspect-[4/3]'
+  borderHidden?:boolean;
 }
 
 const FloatingImage: React.FC<FloatingImageProps> = ({
@@ -25,6 +26,7 @@ const FloatingImage: React.FC<FloatingImageProps> = ({
   initialY = 0,
   rotate = 0,
   aspectRatio = 'aspect-square',
+  borderHidden = false,
   ...rest
 }) => {
   return (
@@ -61,7 +63,7 @@ const FloatingImage: React.FC<FloatingImageProps> = ({
         loading="lazy" // Add native lazy loading
       />
       {/* Optional: Add a subtle overlay or border effect */}
-      <div className="absolute inset-0 border-2 border-white/10 rounded-xl md:rounded-2xl pointer-events-none"></div>
+      <div className={` inset-0 border-2 border-white/10 rounded-xl md:rounded-2xl pointer-events-none ${borderHidden ? "hidden" : "absolute"}`}></div>
     </motion.div>
   );
 };

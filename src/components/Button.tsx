@@ -39,10 +39,10 @@ const Button: React.FC<IButtonProp> = ({
    
   return (
     
-    <div className="flex group w-fit" onClick={onClick}>
+    <div className="flex group w-fit cursor-pointer" onClick={onClick}>
         {
             !iconOnly && <div className={`${btnSizeClasses[size]} min-w-28  rounded-full flex justify-center items-center group-hover:shadow-lg ${backgroundColor} group-hover:${bgHoverColor} ease-in-out duration-300`}>
-        <p className={`${textColor} h- ease-in-out duration-300 `}>{label}</p>
+        <p className={`${textColor} h- ease-in-out duration-300 cursor-pointer`}>{label}</p>
       </div>
         }
       

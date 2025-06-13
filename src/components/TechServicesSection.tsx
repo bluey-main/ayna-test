@@ -21,7 +21,7 @@ import { LiaLightbulb } from "react-icons/lia";
 const techServicesData: TechService[] = [
   {
     id: "policy",
-    title: "Data Governance & Policy",
+    title: "Data Governance & Policy Advisory",
     description:
       "Craft robust frameworks for data management, ensuring compliance, interoperability, and trust across institutions.",
     IconComponent: <FiShield size={70} className="text-blue-500" />,

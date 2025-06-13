@@ -11,9 +11,6 @@ const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
 const TEMPLATE_ID = import.meta.env.VITE_EMAILJS_TEMPLATE_ID; // Use a specific template for contact
 const USER_ID = import.meta.env.VITE_EMAILJS_USER_ID;
 
-
-
-
 interface FormData {
   from_name: string;
   from_email: string;
@@ -31,11 +28,11 @@ const initialFormData: FormData = {
 };
 
 function ContactPage() {
-
   const form = useRef<HTMLFormElement>(null);
   const [formData, setFormData] = useState<FormData>(initialFormData);
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState<'success' | 'error' | null>(null);
+  const year = new Date().getFullYear();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     const { name, value } = e.target;
@@ -84,7 +81,7 @@ function ContactPage() {
         <div className="grid grid-cols-1 lg:grid-cols-10 gap-12 md:gap-16 items-start">
           {/* Left Column: Text Info */}
           <AnimatedWrapper
-            variants={fadeInLeft} // Adjusted delay for faster appearance
+            variants={fadeInLeft}
             className="lg:col-span-4 space-y-8"
           >
             <motion.h1
@@ -96,7 +93,7 @@ function ContactPage() {
             </motion.h1>
 
             <motion.p variants={fadeInUp(0.6, 0.1)} className="text-xl sm:text-2xl font-medium text-data-text-muted">
-             Share your Data concerns with us!
+              Share your Data concerns with us!
             </motion.p>
 
             <motion.div variants={fadeInUp(0.6, 0.2)} className="space-y-6">
@@ -114,10 +111,10 @@ function ContactPage() {
               ))}
               <div>
                 <a
-                  href="https://maps.google.com/?q=14B+Kafayat+Abdulrasaq+Street+Lekki+Phase+1" // Replace with actual address for proper linking
+                  href="https://maps.google.com/?q=14B+Kafayat+Abdulrasaq+Street+Lekki+Phase+1"
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="text-sm text-contact-text-dark hover:text-primary font-medium inline-flex items-center group"
+                  className="text-sm text-data-text-main hover:text-primary font-medium inline-flex items-center group"
                 >
                   See on Google Map
                   <FiExternalLink className="ml-1.5 w-4 h-4 transition-transform group-hover:translate-x-0.5" />
@@ -128,38 +125,84 @@ function ContactPage() {
 
           {/* Right Column: Contact Form */}
           <AnimatedWrapper
-            variants={fadeInRight} // Adjusted delay
+            variants={fadeInRight}
             className="lg:col-span-6 bg-data-text-main text-data-dark-bg p-8 sm:p-10 md:p-12 rounded-form-card shadow-2xl relative"
           >
-      
-
             <h2 className="text-2xl font-semibold mb-8">Contact</h2>
             <form ref={form} onSubmit={handleSubmit} className="space-y-6">
+              {/* Hidden input fields for EmailJS template compatibility */}
+              <input type="hidden" name="name" value={formData.from_name} />
+              <input type="hidden" name="title" value={formData.subject} />
+              <input type="hidden" name="current_year" value={year.toString()} />
+
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
-                <motion.div whileFocus={{borderColor: 'var(--color-contact-accent-yellow, #FFC71F)'}} className="relative">
-                  <input type="text" name="from_name" placeholder="Name" value={formData.from_name} onChange={handleChange} required className="form-input" />
-                </motion.div>
-                <motion.div whileFocus={{borderColor: 'var(--color-contact-accent-yellow, #FFC71F)'}} className="relative">
-                  <input type="email" name="from_email" placeholder="Email" value={formData.from_email} onChange={handleChange} required className="form-input" />
-                </motion.div>
-                <motion.div whileFocus={{borderColor: 'var(--color-contact-accent-yellow, #FFC71F)'}} className="relative">
-                  <input type="tel" name="phone_number" placeholder="Phone" value={formData.phone_number} onChange={handleChange} className="form-input" />
-                </motion.div>
-                <motion.div whileFocus={{borderColor: 'var(--color-contact-accent-yellow, #FFC71F)'}} className="relative">
-                  <input type="text" name="subject" placeholder="Subject" value={formData.subject} onChange={handleChange} required className="form-input" />
-                </motion.div>
+                <div className="relative">
+                  <motion.input 
+                    type="text" 
+                    name="from_name" 
+                    placeholder="Name" 
+                    value={formData.from_name} 
+                    onChange={handleChange} 
+                    required 
+                    whileFocus={{ scale: 1.02 }}
+                    className="form-input w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200" 
+                  />
+                </div>
+                <div className="relative">
+                  <motion.input 
+                    type="email" 
+                    name="from_email" 
+                    placeholder="Email" 
+                    value={formData.from_email} 
+                    onChange={handleChange} 
+                    required 
+                    whileFocus={{ scale: 1.02 }}
+                    className="form-input w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200" 
+                  />
+                </div>
+                <div className="relative">
+                  <motion.input 
+                    type="tel" 
+                    name="phone_number" 
+                    placeholder="Phone" 
+                    value={formData.phone_number} 
+                    onChange={handleChange} 
+                    whileFocus={{ scale: 1.02 }}
+                    className="form-input w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200" 
+                  />
+                </div>
+                <div className="relative">
+                  <motion.input 
+                    type="text" 
+                    name="subject" 
+                    placeholder="Subject" 
+                    value={formData.subject} 
+                    onChange={handleChange} 
+                    required 
+                    whileFocus={{ scale: 1.02 }}
+                    className="form-input w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-all duration-200" 
+                  />
+                </div>
               </div>
-              <motion.div whileFocus={{borderColor: 'var(--color-contact-accent-yellow, #FFC71F)'}} className="relative col-span-full"> {/* sm:col-span-2 if you want it with others */}
-                <textarea name="message" placeholder="Tell us about what you are interested in" value={formData.message} onChange={handleChange} rows={5} required className="form-input"></textarea>
-              </motion.div>
+              <div className="relative">
+                <motion.textarea 
+                  name="message" 
+                  placeholder="Tell us about what you are interested in" 
+                  value={formData.message} 
+                  onChange={handleChange} 
+                  rows={5} 
+                  required 
+                  whileFocus={{ scale: 1.02 }}
+                  className="form-input w-full p-3 border border-gray-300 rounded-md focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent resize-vertical transition-all duration-200"
+                />
+              </div>
               <div>
                 <motion.button
                   type="submit"
                   disabled={isSubmitting}
-                  whileHover={{ scale: 1.02, y: -1,  }}
+                  whileHover={{ scale: 1.02, y: -1 }}
                   whileTap={{ scale: 0.98 }}
-                  className="w-full bg-brand-yellow text-contact-bg-dark font-bold py-3.5 px-6 rounded-button-contact transition-all duration-200 ease-out flex items-center justify-center text-md"
-                  // style={{'--color-contact-accent-yellow-dark': '#D4DB00'} as React.CSSProperties}
+                  className="w-full bg-brand-yellow hover:bg-yellow-500 disabled:bg-gray-400 disabled:cursor-not-allowed text-data-dark-bg font-bold py-3.5 px-6 rounded-md transition-all duration-200 ease-out flex items-center justify-center text-md"
                 >
                   {isSubmitting ? (
                     <FiLoader className="animate-spin mr-2 w-5 h-5" />
@@ -169,12 +212,20 @@ function ContactPage() {
               </div>
             </form>
             {submitStatus === 'success' && (
-              <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-4 text-center text-green-400">
+              <motion.p 
+                initial={{ opacity: 0 }} 
+                animate={{ opacity: 1 }} 
+                className="mt-4 text-center text-green-600 font-medium"
+              >
                 Message sent successfully! We'll be in touch.
               </motion.p>
             )}
             {submitStatus === 'error' && (
-              <motion.p initial={{ opacity: 0 }} animate={{ opacity: 1 }} className="mt-4 text-center text-red-400">
+              <motion.p 
+                initial={{ opacity: 0 }} 
+                animate={{ opacity: 1 }} 
+                className="mt-4 text-center text-red-600 font-medium"
+              >
                 Oops! Something went wrong. Please try again.
               </motion.p>
             )}
@@ -186,4 +237,3 @@ function ContactPage() {
 }
 
 export default ContactPage;
-
