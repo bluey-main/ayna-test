@@ -2,9 +2,10 @@
 import React, { useState, useRef } from 'react';
 import { motion } from 'framer-motion';
 import emailjs from '@emailjs/browser';
-import { FiExternalLink, FiLoader } from 'react-icons/fi';
+// import { FiExternalLink, FiLoader } from 'react-icons/fi';
 import { AnimatedWrapper } from '../components/AnimatedWrapper'; // Assuming path
 import { fadeInUp, fadeInLeft, fadeInRight } from '../components/animations/variants'; // Assuming path
+import { FiLoader } from 'react-icons/fi';
 
 // EmailJS Configuration - Store these in .env!
 const SERVICE_ID = import.meta.env.VITE_EMAILJS_SERVICE_ID;
@@ -72,7 +73,7 @@ function ContactPage() {
   const contactDetails = [
     { label: 'Phone', value: '+234 703 3020 608', href: 'tel:+2347033020608' },
     { label: 'Email', value: 'info@aynadatasolutions.com', href: 'mailto:info@aynadatasolutions.com' },
-    { label: 'Office', value: '14B, Kafayat Abdulrasaq Street, Lekki Phase 1' },
+    // { label: 'Office', value: '14B, Kafayat Abdulrasaq Street, Lekki Phase 1' },
   ];
 
   return (
@@ -109,7 +110,7 @@ function ContactPage() {
                   )}
                 </div>
               ))}
-              <div>
+              {/* <div>
                 <a
                   href="https://maps.google.com/?q=14B+Kafayat+Abdulrasaq+Street+Lekki+Phase+1"
                   target="_blank"
@@ -119,7 +120,7 @@ function ContactPage() {
                   See on Google Map
                   <FiExternalLink className="ml-1.5 w-4 h-4 transition-transform group-hover:translate-x-0.5" />
                 </a>
-              </div>
+              </div> */}
             </motion.div>
           </AnimatedWrapper>
 

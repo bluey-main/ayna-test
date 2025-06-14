@@ -7,6 +7,7 @@ import logo from "../assets/images/ayna-white.png";
 
 import Button from "./Button";
 import { FiMenu, FiX } from "react-icons/fi";
+import { isProduction } from "../hooks/helper";
 
 interface navType {
   name: string;
@@ -34,14 +35,15 @@ const scrollToSection = (id: string, onScrolled?: () => void) => {
 };
 
 // Navigation links data
-const navLinks: navType[] = [
+const mainNavLinks: navType[] = [
   { name: "Home", to: "", isSection: false }, // Ensure this ID matches your Hero section's wrapper
-  // { name: 'Portfolio', to: 'portfolio', isSection: true }, // Or 'best-projects' if you used that ID
   { name: "About", to: "about", isSection: false },
   { name: "Services", to: "services", isSection: false },
 
   // { name: 'Contact', to: 'contact', isSection: false },
 ];
+
+const navLinks = isProduction() ? [] : mainNavLinks
 
 // Animation variants for links (optional, can be done with Tailwind hover too)
 const linkVariants = {
@@ -183,7 +185,8 @@ function Navbar() {
 
         {/* Mobile Navigation Toggle */}
         <div className="md:hidden">
-          <button
+          {
+            navLinks.length > 0 && <button
             onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
             className={`focus:outline-none p-1 rounded 
                         ${
@@ -196,6 +199,8 @@ function Navbar() {
           >
             {isMobileMenuOpen ? <FiX size={26} /> : <FiMenu size={26} />}
           </button>
+          }
+          
           {/* <Button label='Reach Out Now' onClick={() => navigate("/contact")}  iconOnly/> */}
         </div>
       </div>
